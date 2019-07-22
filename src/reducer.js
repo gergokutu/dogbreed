@@ -1,6 +1,10 @@
-const reducer = (state = [], action = {}) => {
+import {GET_BREEDS} from './actions/displayDogList'
+
+const reducer = (state =[], action = {}) => {
   switch (action.type) {
-  default:
+  case GET_BREEDS:
+    return action.payload
+    default:
     return state
   }
 }
