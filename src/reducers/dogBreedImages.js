@@ -1,3 +1,4 @@
+// step five
 import {GET_BREED_PICTURES} from '../actions/dogList'
 
 const reducer = (state =[], action = {}) => {
@@ -11,3 +12,4 @@ const reducer = (state =[], action = {}) => {
 }
 
 export default reducer
+// go back to the container » DogBreedImagesContainer
