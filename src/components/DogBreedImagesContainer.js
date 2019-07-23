@@ -38,7 +38,7 @@ class DogBreedImagesContainer extends Component {
   // ...on React local store
   render() {
     // console.log(this.props.images)
-    return <div>
+  return <div>
       <DogBreedImages name={this.props.match.params.breed} images={this.props.images} /> 
     </div>
   }

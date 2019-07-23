@@ -9,13 +9,10 @@ function App() {
   return (
     <div className="App">
       <Title name='All Dog Breeds'/>
+
       <Route exact path="/" component={DogListContainer} />
-<<<<<<< HEAD
-      <Route path="/dog-breeds/:breed" component={DogBreedImages} />  
-=======
       {/* <Route path="/dog-breeds/:breed" component={DogBreedImages} /> */}
       <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
->>>>>>> f37a9d69c537a3bb06b157e14ab562afd8d62d2e
     </div>
   );
 }
