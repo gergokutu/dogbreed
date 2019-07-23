@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DogList from './DogList'
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-doom'
-import { displayDogs } from '../actions/displayDogList'
+import { displayDogs } from '../actions/dogList'
 
 class DogListContainer extends Component {
   // state = { dogBreeds: null }

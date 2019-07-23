@@ -1,4 +1,4 @@
-import {GET_BREEDS} from '../actions/displayDogList'
+import {GET_BREEDS} from '../actions/dogList'
 
 const reducer = (state =[], action = {}) => {
   switch (action.type) {

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import dogBreeds from './dogbreeds'
+import dogBreeds from './dogList'
 
 export default combineReducers({
   dogBreeds: dogBreeds
