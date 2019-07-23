@@ -9,7 +9,6 @@ function getBreeds(dogs) {
 }
 
 export function displayDogs() {
-  console.log("here!!")
   return function (dispatch) {
     request("https://dog.ceo/api/breeds/list/all")
       .then(response => {

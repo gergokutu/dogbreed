@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { displayDogs } from '../actions/dogList'
 
 class DogListContainer extends Component {
+  // commented out » we use redux state instead of react
   // state = { dogBreeds: null }
 
   componentDidMount() {
