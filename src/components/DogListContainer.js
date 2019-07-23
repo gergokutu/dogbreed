@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import DogList from './DogList'
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-doom'
-import { displayDogs } from '../actions/displayDogList'
+import { displayDogs } from '../actions/dogList'
 
 class DogListContainer extends Component {
+  // commented out » we use redux state instead of react
   // state = { dogBreeds: null }
 
   componentDidMount() {
@@ -12,7 +13,6 @@ class DogListContainer extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (!this.props.dogBreeds) return 'Loading...'
     else {
       return <DogList dogBreeds={this.props.dogBreeds} />
@@ -20,10 +20,10 @@ class DogListContainer extends Component {
   }
 }
 
-const mapstateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
-    dogBreeds: state
+    dogBreeds: state.dogBreeds
   }
 }
-export default connect(mapstateToProps, { displayDogs })(DogListContainer)
+export default connect(mapStateToProps, { displayDogs })(DogListContainer)
 
