@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Title name='All Dog Breeds'/>
+
       <Route exact path="/" component={DogListContainer} />
       <Route path="/dog-breeds/:breed" component={DogBreedImages} />
 
