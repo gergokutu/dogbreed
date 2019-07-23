@@ -10,13 +10,16 @@ function getImages(pictures) {
   }
 }
 
-export function displayImages() {
+// do not forget to use the breed as parameter
+export function displayImages(breed) {
   return function (dispatch) {
-    const breed = this.props.match.params.breed  
     request
-      .get(`https://dog.ceo/api/breeds/${encodeURIComponent(breed)}/images`)
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/10`)
       .then(response => dispatch(getImages(response.body.message)))
       .catch(console.error)
   }
 }
- // now go to the reducer » /reducers/dogBreedImages.js
+
+// now go to the reducer » /reducers/dogBreedImages.js
+// /random/10 » just get 10 random photos
+//  `https://dog.ceo/api/breed/${encodeURIComponent(breedName)}/images/random/10`

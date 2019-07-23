@@ -16,12 +16,13 @@ class DogBreedImagesContainer extends Component {
   // step2
   // we have to get the data through an action creator » ./action/DogBreedImages.js
   componentDidMount() {
-    // const breed = this.props.match.params.breed
+    // reach the breed name » const breed...
+    const breed = this.props.match.params.breed
     // request
     //   .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)
     //   .then(response => this.updateImages(response.body.message))
     //   .catch(console.error)
-    this.props.displayImages()
+    this.props.displayImages(breed)
   }
 
   // step7 » uncomment/delete
@@ -36,6 +37,7 @@ class DogBreedImagesContainer extends Component {
   // ...use mapStateToProps and change updateImages() » because of setState works only...
   // ...on React local store
   render() {
+    // console.log(this.props.images)
     return <div>
       <DogBreedImages name={this.props.match.params.breed} images={this.props.images} /> 
     </div>
@@ -44,9 +46,12 @@ class DogBreedImagesContainer extends Component {
 
 // step8
 // create mapStateToProps
+// and specify what part of the state is needed...
+// ... nedded because of combineReducers...
+// ... that is why images: state does not work
 const mapStateToProps = (state) => {
   return {
-    images: state
+    images: state.images
   }
 }
 

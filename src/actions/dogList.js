@@ -12,7 +12,6 @@ export function displayDogs() {
   return function (dispatch) {
     request("https://dog.ceo/api/breeds/list/all")
       .then(response => {
-        console.log("this logs", response)
         const res = Object.keys(response.body.message);
         dispatch(getBreeds(res));
       });
