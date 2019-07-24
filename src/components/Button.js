@@ -1,5 +1,4 @@
 import React from 'react'
-import GameOneContainer from './GameOneContainer'
 import {Link} from 'react-router-dom'
 
 

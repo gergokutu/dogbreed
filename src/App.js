@@ -15,8 +15,6 @@ function App() {
       <Route exact path="/" component={DogListContainer} />
       <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer} />
       <Route path="/GameOne" component={GameOneContainer} />
-      
-
     </div>
   );
 }
