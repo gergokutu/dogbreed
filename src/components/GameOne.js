@@ -27,7 +27,7 @@ export default function GameOne(props) {
           <option value={breedName} key='goodAnswer'>{breedName}</option>
 
           {props.dogName.map(dog => {
-            return <li key={dog}>{dog}</li>
+            return <option value={dog} key={dog}>{dog}</option>
           })}
         </select>}
       </div>
