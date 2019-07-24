@@ -4,6 +4,7 @@ import { displayQuestionImage } from '../actions/randomPicture';
 import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
 // import { GET_RANDOM_IMAGE } from '../actions/randomPicture'
 import {connect} from 'react-redux'
+import '../style/GameOne.css'
 
 function GameOne(props) {
   const { picture } = props
