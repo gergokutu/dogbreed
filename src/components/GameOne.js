@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { displayQuestionImage } from '../actions/randomPicture';
 import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
+// import { GET_RANDOM_IMAGE } from '../actions/randomPicture'
+import {connect} from 'react-redux'
 
-export default function GameOne(props) {
+function GameOne(props) {
   const { picture } = props
   // picture is an array » we need a string!
   const string = picture.toString()
@@ -15,8 +17,10 @@ export default function GameOne(props) {
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
       console.log(props)
-      displayQuestionImage()
-      displayRandomTwoDogs()
+      props.displayQuestionImage()
+      props.displayRandomTwoDogs()
+    } else {
+      alert('You are fucked up')
     }
   }
 
@@ -46,3 +50,11 @@ export default function GameOne(props) {
     </div >
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+export default connect(mapStateToProps, {displayQuestionImage, displayRandomTwoDogs})(GameOne) 
