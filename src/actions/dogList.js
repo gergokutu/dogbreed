@@ -1,6 +1,7 @@
 import * as request from 'superagent'
 export const GET_BREEDS = 'GET_BREEDS'
 
+
 function getBreeds(dogs) {
   return {
     type: GET_BREEDS,
@@ -17,4 +18,3 @@ export function displayDogs() {
       });
   };
 }
-
