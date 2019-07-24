@@ -2,6 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GameOne(props) {
+  
+  const goodAnswer = () => {
+    alert('You are right')
+  }
+
+  const wrongAnswer = () => {
+    alert('WROOOOONG')
+  }
+
   const { picture } = props
   // picture is an array » we need a string!
   const string = picture.toString()
@@ -21,15 +30,15 @@ export default function GameOne(props) {
       </div>
 
       <div className='list'>
-        {<select defaultValue=''>
-          <option value='' key=''>--select a breed name--</option>
+        {<ul defaultValue='' >
+          {/* <option value='' key=''>--select a breed name--</option> */}
 
-          <option value={breedName} key='goodAnswer'>{breedName}</option>
+          <li value={breedName} key='goodAnswer' onClick={goodAnswer}>{breedName}</li>
 
           {props.dogName.map(dog => {
-            return <option value={dog} key={dog}>{dog}</option>
+            return <li value={dog} key={dog} onClick={wrongAnswer}>{dog}</li>
           })}
-        </select>}
+        </ul>}
       </div>
       
     <Link to="/">Go back to the index</Link>
