@@ -25,10 +25,11 @@ function GameOne(props) {
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
+      alert('Correct! Click OK to continue the test.')
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else { 
-      setTimeout(() => alert('You are fucked up'), 1000)
+      setTimeout(() => alert('You are fucked up!'), 2000)
       // show the correct answer
       setTimeout(() => alert(`Anyway, the correct answer is: ${breedName}`), 2000)
     }
