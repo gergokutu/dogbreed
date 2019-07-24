@@ -1,16 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { displayQuestionImage } from '../actions/randomPicture';
+import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
 
 export default function GameOne(props) {
-  
-  const goodAnswer = () => {
-    alert('You are right')
-  }
-
-  const wrongAnswer = () => {
-    alert('WROOOOONG')
-  }
-
   const { picture } = props
   // picture is an array » we need a string!
   const string = picture.toString()
@@ -18,7 +11,15 @@ export default function GameOne(props) {
   // ...and we have to get the breed name which is the 5th...
   // ...so we need [4]
   const breedName = string.split('/')[4]
-  console.log("breedName:", breedName)
+
+  const checkAnswer = (event) => {
+    if (event.target.value === breedName) {
+      console.log(props)
+      displayQuestionImage()
+      displayRandomTwoDogs()
+    }
+  }
+
   return (
     <div className="game-one">
       <h1>GAME ONE</h1>
@@ -30,15 +31,15 @@ export default function GameOne(props) {
       </div>
 
       <div className='list'>
-        {<ul defaultValue='' >
-          {/* <option value='' key=''>--select a breed name--</option> */}
+        {<select defaultValue='' onChange={checkAnswer}>
+          <option value='' key=''>--select a breed name--</option>
 
-          <li value={breedName} key='goodAnswer' onClick={goodAnswer}>{breedName}</li>
+          <option value={breedName} key='goodAnswer'>{breedName}</option>
 
           {props.dogName.map(dog => {
-            return <li value={dog} key={dog} onClick={wrongAnswer}>{dog}</li>
+            return <option value={dog} key={dog}>{dog}</option>
           })}
-        </ul>}
+        </select>}
       </div>
       
     <Link to="/">Go back to the index</Link>
