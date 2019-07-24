@@ -12,15 +12,25 @@ function GameOne(props) {
   // we have to split that string (the url) by '/'...
   // ...and we have to get the breed name which is the 5th...
   // ...so we need [4]
-  const breedName = string.split('/')[4]
+  const breedNamesArray = string.split('/')
+  const breedName = breedNamesArray[4]
+
+  // push gives back the lenght of the new array
+  // concat gives back the new array with the new element!!!
+  const newBreedNamesArray = props.dogName.concat(breedName)
+  
+  // shuffle » (array) => array.sort(() => Math.random() - 0.5);
+  const shuffeledBreeds = newBreedNamesArray.sort(() => Math.random() - 0.5)
+  console.log('shuffled:', shuffeledBreeds)
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
-      console.log(props)
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
-    } else {
-      alert('You are fucked up')
+    } else { 
+      setTimeout(() => alert('You are fucked up'), 1000)
+      // show the correct answer
+      setTimeout(() => alert(`Anyway, the correct answer is: ${breedName}`), 2000)
     }
   }
 
@@ -38,10 +48,11 @@ function GameOne(props) {
         {<select defaultValue='' onChange={checkAnswer}>
           <option value='' key=''>--select a breed name--</option>
 
-          <option value={breedName} key='goodAnswer'>{breedName}</option>
+          {/* not necessary anymore because we have everything in shuffeledBreeds */}
+          {/* <option value={breedName} key='goodAnswer'>{breedName}</option> */}
 
-          {props.dogName.map(dog => {
-            return <option value={dog} key={dog}>{dog}</option>
+          {shuffeledBreeds.map(dog => {
+            return <option value={dog} key={Math.random()}>{dog}</option>
           })}
         </select>}
       </div>
