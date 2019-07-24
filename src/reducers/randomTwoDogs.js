@@ -1,8 +1,8 @@
-import { GET_BREEDS } from '../actions/dogList'
+import { GET_TWO_BREEDS } from '../actions/randomTwoDogs'
 
 const reducer = (state = [], action = {}) => {
   switch (action.type) {
-    case GET_BREEDS:
+    case GET_TWO_BREEDS:
       return action.payload
     default:
       return state
