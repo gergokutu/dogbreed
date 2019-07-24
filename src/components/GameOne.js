@@ -22,7 +22,7 @@ export default function GameOne(props) {
           <li key='goodAnswer'>{breedName}</li>
 
           {props.dogName.map(dog => {
-            return <li key='wrongAnswer'>{dog}</li>
+            return <li key={dog}>{dog}</li>
           })}
         </ul>}
         
