@@ -14,21 +14,25 @@ export default function GameOne(props) {
     <div className="game-one">
       <h1>GAME ONE</h1>
       <p>Please choose the correct answer</p>
-      <div>
+
+      <div className='randomPicture'>
         {!picture && 'Loading...'}
         {<img src={picture} alt="Dog" />}
+      </div>
 
-        {<ul>
-          <li key='goodAnswer'>{breedName}</li>
+      <div className='list'>
+        {<select defaultValue=''>
+          <option value='' key=''>--select a breed name--</option>
+
+          <option value={breedName} key='goodAnswer'>{breedName}</option>
 
           {props.dogName.map(dog => {
             return <li key={dog}>{dog}</li>
           })}
-        </ul>}
-        
+        </select>}
       </div>
-      <Link to="/">Go back to the index</Link>
-    </div>
-
+      
+    <Link to="/">Go back to the index</Link>
+    </div >
   )
 }
