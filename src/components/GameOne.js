@@ -16,7 +16,7 @@ function GameOne(props) {
   const breedName = breedNamesArray[4]
 
   // push gives back the lenght of the new array
-  // concat gives back the new array with the new element!!!
+  // concat gives back the new array with the new element (the array itself)!!!
   const newBreedNamesArray = props.dogName.concat(breedName)
   
   // shuffle » (array) => array.sort(() => Math.random() - 0.5);
