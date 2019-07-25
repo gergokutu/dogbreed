@@ -10,8 +10,9 @@ function GameTwo(props){
     return(
       <div className="gameTwo">
         <h1>GAME TWO</h1>
+        <Link to="/">Go back to the index</Link>
         <p>Select the right Image below</p>
-        
+    
         <div className="randomNames">
           {!gameTwo.name && 'Loading...'}
           <h2><b>{gameTwo.name}</b></h2>
@@ -24,7 +25,6 @@ function GameTwo(props){
         <div className="rightImage">
           <img src={props.breedName} alt='Dog'/>
         </div>
-        <Link to="/">Go back to the index</Link>
       </div>
     )
   }
