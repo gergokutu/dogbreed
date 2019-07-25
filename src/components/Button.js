@@ -7,7 +7,7 @@ export default function Button(props) {
     <div className='buttonBlock'>
       <Link to={"/GameOne/"}> <button><h3>Game One</h3></button></Link>
       <Link to={"/GameTwo"}><button><h3>Game Two</h3></button></Link>
-      <button><h3>Game Three</h3></button>
+      {/* <button><h3>Game Three</h3></button> */}
     </div>
   )
 }
