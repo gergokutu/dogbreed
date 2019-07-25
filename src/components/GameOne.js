@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { displayQuestionImage } from '../actions/randomPicture';
-import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
+import { displayQuestionImage } from '../actions/randomPicture'
+import { displayRandomTwoDogs } from '../actions/randomTwoDogs'
 import { connect } from 'react-redux'
 import '../style/GameOne.css'
+import { sendGoodsAnswer } from '../actions/sendGoodAnswers'
+import { sendWrongAnswer } from '../actions/sendWrongAnswer'
 
 function GameOne(props) {
   const { random } = props
@@ -15,10 +17,14 @@ function GameOne(props) {
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
+      props.sendGoodsAnswer(event.target.value)
+      
       alert('Correct! Click OK to continue the test.')
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else {
+      props.sendWrongAnswer(event.target.value)
+
       alert(`Wrong, the correct answer is: ${breedName}`)
       setTimeout(() => {
         props.displayQuestionImage()
@@ -27,6 +33,8 @@ function GameOne(props) {
     }
   }
   
+  const sucessRate = Math.floor(random.goodAnswers.length/(random.goodAnswers.length+random.wrongAnswers.length)*100)
+
   return (
     <div className="game-one">
       <h1>GAME ONE</h1>
@@ -35,6 +43,10 @@ function GameOne(props) {
       <div className='randomPicture'>
         {!random.picture && 'Loading...'}
         {<img src={random.picture} alt="Dog" />}
+      </div>
+
+      <div className='sucessRate'>  
+        {!sucessRate ?  '0' : sucessRate}%
       </div>
 
       <div className='list'>
@@ -57,4 +69,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs })(GameOne) 
+export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs, sendGoodsAnswer, sendWrongAnswer })(GameOne) 
