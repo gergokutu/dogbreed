@@ -7,6 +7,7 @@ import {displayRightImage} from '../actions/getRightImage'
 
 function GameTwo(props){
   const {gameTwo} = props
+  console.log("gametwo", gameTwo)
     return(
       <div className="gameTwo">
         <h1>GAME TWO</h1>
@@ -22,7 +23,8 @@ function GameTwo(props){
         </div>
 
         <div className="rightImage">
-          {props.breedName}
+          {gameTwo.twoPictures.find}
+          
         </div>
         <Link to="/">Go back to the index</Link>
       </div>
