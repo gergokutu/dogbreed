@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// only classes needs/have the render()
 export default function DogBreedImages(props) {
   const { name, images } = props
 

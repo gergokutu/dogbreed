@@ -1,5 +1,3 @@
-// step4
-// do not forget to combine the reducers!!!
 import * as request from 'superagent'
 export const GET_RANDOM_IMAGE = 'GET_RANDOM_IMAGE'
 
