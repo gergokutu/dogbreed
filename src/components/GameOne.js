@@ -38,6 +38,7 @@ function GameOne(props) {
   return (
     <div className="game-one">
       <h1>GAME ONE</h1>
+      <Link to="/">Go back to the index</Link>
       <p>Please choose the correct answer</p>
 
       <div className='randomPicture'>
@@ -57,8 +58,6 @@ function GameOne(props) {
           })}
         </select>}
       </div>
-
-      <Link to="/">Go back to the index</Link>
     </div >
   )
 }
