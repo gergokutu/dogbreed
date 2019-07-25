@@ -46,7 +46,7 @@ function GameOne(props) {
       </div>
 
       <div className='sucessRate'>  
-        {!sucessRate ?  '0' : sucessRate}%
+        Your sucess rate is: {!sucessRate ?  '0' : sucessRate}%
       </div>
 
       <div className='list'>
