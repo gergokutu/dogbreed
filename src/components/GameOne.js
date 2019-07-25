@@ -30,8 +30,12 @@ function GameOne(props) {
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else { 
-      // show the correct answer after 2 sec
-      setTimeout(() => alert(`Wrong, the correct answer is: ${breedName}`), 2000)
+      // show the correct answer after 2 sec delay, and show the next question
+      alert(`Wrong, the correct answer is: ${breedName}`)
+      setTimeout(() => {
+        props.displayQuestionImage()
+      props.displayRandomTwoDogs()
+      }, 2000)
     }
   }
 
