@@ -22,7 +22,7 @@ function GameTwo(props){
         </div>
 
         <div className="rightImage">
-          {props.breedName}
+          <img src={props.breedName} alt='Dog'/>
         </div>
         <Link to="/">Go back to the index</Link>
       </div>

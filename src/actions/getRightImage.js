@@ -8,10 +8,10 @@ function getRightImage(picture) {
   }
 }
 
-export function displayRightImage(name) {
+export function displayRightImage(breed) {
   return function (dispatch) {
     request
-      .get(`https://dog.ceo/api/breed/${encodeURIComponent(name)}/images/random/1`)
+      .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images/random/1`)
       .then(response => dispatch(getRightImage(response.body.message)))
       .catch(console.error)
   }
