@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {displayRandomNames} from '../actions/gameTwo'
 import {displayImagesToAnswer} from '../actions/twoRandomImages'
+import {displayRightImage} from '../actions/getRightImage'
 
 function GameTwo(props){
   const {gameTwo} = props
@@ -15,8 +16,13 @@ function GameTwo(props){
           {!gameTwo.name && 'Loading...'}
           <h2><b>{gameTwo.name}</b></h2>
         </div>
+        
         <div className="ImageAnswers">
           {gameTwo.twoPictures.map((url, id) => <img src={url} alt='Dog' key={id}/>)}
+        </div>
+
+        <div className="rightImage">
+          {props.breedName}
         </div>
         <Link to="/">Go back to the index</Link>
       </div>
@@ -28,4 +34,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps,{displayRandomNames, displayImagesToAnswer})(GameTwo)
+export default connect(mapStateToProps,{displayRandomNames, displayImagesToAnswer, displayRightImage})(GameTwo)
