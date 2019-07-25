@@ -1,0 +1,9 @@
+li {
+  list-style-type: none;
+  margin: 2%;
+  padding-right: 2rem;
+}
+
+.dogListBlock {
+  text-align: center;
+}

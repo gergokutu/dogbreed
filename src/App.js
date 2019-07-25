@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style/App.css';
 import Title from './components/Title';
 import DogListContainer from './components/DogListContainer';
 import { Route } from 'react-router-dom'
