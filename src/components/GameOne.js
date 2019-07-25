@@ -7,18 +7,22 @@ import {connect} from 'react-redux'
 import '../style/GameOne.css'
 
 function GameOne(props) {
-  const { picture } = props
+  const { random } = props
   // picture is an array » we need a string!
-  const string = picture.toString()
+  console.log(random, props)
+  const string = random.images.toString()
   // we have to split that string (the url) by '/'...
   // ...and we have to get the breed name which is the 5th...
   // ...so we need [4]
   const breedNamesArray = string.split('/')
   const breedName = breedNamesArray[4]
 
+  console.log('Dog Name',props.dogName)
+
   // push gives back the lenght of the new array
   // concat gives back the new array with the new element (the array itself)!!!
-  const newBreedNamesArray = props.dogName.concat(breedName)
+  const newBreedNamesArray = props.random.breeds.concat(breedName)
+  console.log("New breedName",newBreedNamesArray)
   
   // shuffle » (array) => array.sort(() => Math.random() - 0.5);
   const shuffeledBreeds = newBreedNamesArray.sort(() => Math.random() - 0.5)
@@ -45,8 +49,8 @@ function GameOne(props) {
       <p>Please choose the correct answer</p>
 
       <div className='randomPicture'>
-        {!picture && 'Loading...'}
-        {<img src={picture} alt="Dog" />}
+        {!random.images && 'Loading...'}
+        {<img src={random.images} alt="Dog" />}
       </div>
 
       <div className='list'>
