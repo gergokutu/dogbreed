@@ -9,9 +9,19 @@ class GameTwoContainer extends Component{
   componentDidMount(){
     this.props.displayRandomNames()
     this.props.displayImagesToAnswer()
-    // this.props.displayRightImage()
-    
-}
+    console.log(this.props)
+
+  }
+
+  // (-, parameter) » '_' universal sign for unused prev params
+  // check componentDidUpdate in react lifecycle methods
+  componentDidUpdate(prevProps){
+    if(prevProps.name !== this.props.name) {
+      console.log('sdfgd', this.props.name )
+      this.props.displayRightImage(this.props.name)
+    }
+  } 
+
   render(){
     return(
       <GameTwo name={this.props.name} twoPictures={this.props.twoPictures} breedName={this.props.breedName}/> ///fix here
@@ -19,9 +29,10 @@ class GameTwoContainer extends Component{
   }
 }
 const mapStateToProps = (state) => {
+  console.log('state', state)
   return {
-    name: state.name,
-    twoPictures: state.twoPictures,
+    name: state.gameTwo.name,
+    twoPictures: state.gameTwo.twoPictures,
     breedName: state.breedName
   }
 }

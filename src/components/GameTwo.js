@@ -23,8 +23,12 @@ function GameTwo(props){
         </div>
 
         <div className="rightImage">
+<<<<<<< HEAD
           {gameTwo.twoPictures.find}
           
+=======
+          <img src={props.breedName} alt='Dog'/>
+>>>>>>> f3079270ec427fc1d50dfaed524f95643a799679
         </div>
         <Link to="/">Go back to the index</Link>
       </div>
