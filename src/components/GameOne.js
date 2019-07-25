@@ -4,6 +4,7 @@ import { displayQuestionImage } from '../actions/randomPicture';
 import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
 // import { GET_RANDOM_IMAGE } from '../actions/randomPicture'
 import {connect} from 'react-redux'
+import '../style/GameOne.css'
 
 function GameOne(props) {
   const { picture } = props
@@ -25,11 +26,18 @@ function GameOne(props) {
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
+      alert('Correct! Click OK to continue the test.')
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else { 
+<<<<<<< HEAD
       // show the correct answer after 2 sec delay
       setTimeout(() => alert(`Wrong, the correct answer is: ${breedName}`), 2000)
+=======
+      setTimeout(() => alert('You are fucked up!'), 2000)
+      // show the correct answer
+      setTimeout(() => alert(`Anyway, the correct answer is: ${breedName}`), 2000)
+>>>>>>> master
     }
   }
 

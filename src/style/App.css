@@ -9,22 +9,16 @@
   font-size: calc(10px + 2vmin);
   color: wheat;
 }
-button{
+button {
   border-radius: 30px;
   margin-left: 10px;
 }
 
-img{
-  min-width: 100px;
+img {
   min-height: 100px;
-  width: 200px;
-  height: 200px;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  min-width: auto;
+  width: auto;
+  height: 300px;
+  margin: 10px;
+  box-shadow: 5px 10px 8px 5px rgba(0, 0, 0, 0.2), 5px 10px 20px 0 rgba(0, 0, 0, 0.19);
 }
