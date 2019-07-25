@@ -4,7 +4,6 @@ import GameOne from './GameOne'
 import { displayQuestionImage } from "../actions/randomPicture"
 import { displayRandomTwoDogs } from "../actions/randomTwoDogs"
 
-
 class GameOneContainer extends Component {
   componentDidMount() {
     this.props.displayQuestionImage()
