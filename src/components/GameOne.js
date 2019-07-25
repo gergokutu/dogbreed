@@ -2,27 +2,29 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { displayQuestionImage } from '../actions/randomPicture';
 import { displayRandomTwoDogs } from '../actions/randomTwoDogs';
-// import { GET_RANDOM_IMAGE } from '../actions/randomPicture'
 import {connect} from 'react-redux'
 import '../style/GameOne.css'
 
+// random is a new prop because of combining randomPicture.js...
+// ...and randomTwoDogs.js into one single reducer » gameOneReducer.js
+// check the new reducer!!! and the combined reducer » src/reducers/index.js
 function GameOne(props) {
-  const { picture } = props
-  // picture is an array » we need a string!
-  const string = picture.toString()
+  // changed from const { random } = props, because of the new reducer
+  const { random } = props
+  // const string = picture.toString(), because of the new reducer
+  const string = random.picture.toString()
   // we have to split that string (the url) by '/'...
   // ...and we have to get the breed name which is the 5th...
   // ...so we need [4]
   const breedNamesArray = string.split('/')
   const breedName = breedNamesArray[4]
-
   // push gives back the lenght of the new array
   // concat gives back the new array with the new element (the array itself)!!!
-  const newBreedNamesArray = props.dogName.concat(breedName)
-  
+  // const newBreedNamesArray = props.dogName.concat(breedName)...
+  // ...because of the new reducer
+  const newBreedNamesArray = props.random.breeds.concat(breedName)
   // shuffle » (array) => array.sort(() => Math.random() - 0.5);
   const shuffeledBreeds = newBreedNamesArray.sort(() => Math.random() - 0.5)
-  console.log('shuffled:', shuffeledBreeds)
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
@@ -35,18 +37,18 @@ function GameOne(props) {
       setTimeout(() => {
         props.displayQuestionImage()
       props.displayRandomTwoDogs()
-      }, 2000)
+      }, 1000)
     }
   }
-
+  // picture » random.images, because of the new reducer
   return (
     <div className="game-one">
       <h1>GAME ONE</h1>
       <p>Please choose the correct answer</p>
 
       <div className='randomPicture'>
-        {!picture && 'Loading...'}
-        {<img src={picture} alt="Dog" />}
+        {!random.picture && 'Loading...'}
+        {<img src={random.picture} alt="Dog" />}
       </div>
 
       <div className='list'>
