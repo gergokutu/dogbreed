@@ -3,12 +3,13 @@ import dogBreeds from './dogList'
 import images from './dogBreedImages'
 import picture from './randomPicture'
 import dogName from './randomTwoDogs'
-import name from './gameTwoReducer'
+// import GameTwo from '../components/GameTwo';
+import gameTwoReducer from './gameTwoReducer'
 
 export default combineReducers({
   dogBreeds: dogBreeds,
   images: images,
   picture: picture,
   dogName: dogName,
-  name: name
+  gameTwo: gameTwoReducer
 })

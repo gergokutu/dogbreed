@@ -1,10 +1,16 @@
 import { GET_BREED_NAMES} from '../actions/gameTwo'
+import {GET_RANDOM_TWO_IMAGES} from '../actions/twoRandomImages'
 
-const reducer = (state = [], action = {}) => {
+const reducer = (state = {name:[], twoPictures:[]}, action = {}) => {
 
   switch (action.type) {
     case GET_BREED_NAMES:
-      return action.payload
+      return {...state, name: action.payload}
+    case GET_RANDOM_TWO_IMAGES:
+      return{
+        ...state, 
+        twoPictures : action.payload
+      } 
     default:
       return state
   }
