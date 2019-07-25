@@ -35,7 +35,7 @@ function GameOne(props) {
       setTimeout(() => {
         props.displayQuestionImage()
       props.displayRandomTwoDogs()
-      }, 2000) 
+      }, 2000)
     }
   }
 
