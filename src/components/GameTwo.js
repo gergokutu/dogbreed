@@ -33,6 +33,7 @@ function GameTwo(props){
       </div>
     )
   }
+  
 const mapStateToProps = (state) => {
   return{
     ...state
