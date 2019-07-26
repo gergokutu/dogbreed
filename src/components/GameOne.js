@@ -9,29 +9,23 @@ import { sendWrongAnswer } from '../actions/sendWrongAnswer'
 
 function GameOne(props) {
   const { random, dogBreeds } = props
-  console.log("doglist", dogBreeds)
   const string = random.picture.toString()
   const breedNamesArray = string.split('/')
   const breedName = breedNamesArray[4]
-  const newBreedNamesArray = props.random.breeds.concat(breedName)
-//   const cleanBreeds = dogBreeds.filter(breed => {if (breed === !breedName) {
-//     return breed
-//   }
-//   return null
-// })
-//   console.log("clean", cleanBreeds)
-  const shuffeledBreeds = newBreedNamesArray.sort(() => Math.random() - 0.5)
+  
+  const cleanBreeds = dogBreeds.filter(breed => breed !== breedName)
+
+  const shuffeledBreeds = cleanBreeds.sort(() => Math.random() - 0.5)
+  const selected = shuffeledBreeds.slice(0, 3)
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
       props.sendGoodsAnswer(event.target.value)
-      
       alert('Correct! Click OK to continue the test.')
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else {
       props.sendWrongAnswer(event.target.value)
-
       alert(`Wrong, the correct answer is: ${breedName}`)
       setTimeout(() => {
         props.displayQuestionImage()
@@ -60,7 +54,7 @@ function GameOne(props) {
       <div className='list'>
         {<select defaultValue='' onChange={checkAnswer}>
           <option value='' key=''>--select a breed name--</option>
-          {shuffeledBreeds.map(dog => {
+          {selected.map(dog => {
             return <option value={dog} key={Math.random()}>{dog}</option>
           })}
         </select>}
