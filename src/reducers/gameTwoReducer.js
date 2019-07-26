@@ -9,8 +9,7 @@ const reducer = (state = {name:[], twoPictures:[]}, action = {}) => {
     case GET_RANDOM_TWO_IMAGES:
       return{
         ...state, 
-        twoPictures : action.payload
-      } 
+        twoPictures : action.payload} 
     default:
       return state
   }

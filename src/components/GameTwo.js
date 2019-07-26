@@ -8,12 +8,22 @@ import {displayRightImage} from '../actions/getRightImage'
 function GameTwo(props){
   const {gameTwo} = props
 
-  const shuffledPictures = gameTwo.twoPictures
-  .concat(props.breedName)
-  .sort(()=> Math.random() - 0.5)
+  console.log('twoPictures test:', gameTwo.twoPictures)
+  console.log('props.breedName test:', props.breedName)
 
-  const correctPic = (event) => {
-    alert('Hello')
+  const shuffledPictures = gameTwo
+    .twoPictures
+    .concat(props.breedName)
+    .sort(()=> Math.random() - 0.5)
+
+  console.log('shuffledPictures test:', shuffledPictures)
+
+  const correctPic = (data) => {
+    if (data.url) {
+      alert('great')
+    } else {
+      alert('sorry')
+    }
   }
 
     return(
@@ -27,8 +37,20 @@ function GameTwo(props){
           <h2><b>{gameTwo.name}</b></h2>
         </div>
         
-        <div onClick={correctPic} className="ImageAnswers">
-          {shuffledPictures.map((url, id) => <img  src={url} alt='Dog' key={id}/>)}
+        <div className="ImageAnswers">
+          {
+            shuffledPictures
+              .map((data) => {
+                const url = data.url ? data.url : data
+                
+                return <img
+                  src={url}
+                  alt='Dog'
+                  onClick={() => correctPic(data)}
+                  key={url}
+                />
+              })
+          }
         </div>
       </div>
     )
