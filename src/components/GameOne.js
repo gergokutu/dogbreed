@@ -4,15 +4,14 @@ import { displayQuestionImage } from '../actions/randomPicture'
 import { displayRandomTwoDogs } from '../actions/randomTwoDogs'
 import { connect } from 'react-redux'
 import '../style/GameOne.css'
-import { sendGoodsAnswer } from '../actions/sendGoodAnswers'
-import { sendWrongAnswer } from '../actions/sendWrongAnswer'
+import { sendGoodAnswer1 } from '../actions/sendGoodAnswer1'
+import { sendWrongAnswer1 } from '../actions/sendWrongAnswer1'
 
 function GameOne(props) {
   const { random, dogBreeds } = props
   const string = random.picture.toString()
   const breedNamesArray = string.split('/')
   const breedName = breedNamesArray[4]
-  
   const cleanBreeds = dogBreeds.filter(breed => breed !== breedName)
   const shuffeledCleanBreeds = cleanBreeds.sort(() => Math.random() - 0.5)
   const randomTwoDogs = shuffeledCleanBreeds.slice(0, 2)
@@ -22,12 +21,12 @@ function GameOne(props) {
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
-      props.sendGoodsAnswer(event.target.value)
+      props.sendGoodAnswer1(event.target.value)
       alert('Correct! Click OK to continue the test.')
       props.displayQuestionImage()
       props.displayRandomTwoDogs()
     } else {
-      props.sendWrongAnswer(event.target.value)
+      props.sendWrongAnswer1(event.target.value)
       alert(`Wrong, the correct answer is: ${breedName}`)
       setTimeout(() => {
         props.displayQuestionImage()
@@ -36,7 +35,7 @@ function GameOne(props) {
     }
   }
   
-  const sucessRate = Math.floor(random.goodAnswers.length/(random.goodAnswers.length+random.wrongAnswers.length)*100)
+  const sucessRate = Math.floor(random.goodAnswers1.length/(random.goodAnswers1.length+random.wrongAnswers1.length)*100)
 
   return (
     <div className="game-one">
@@ -71,4 +70,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs, sendGoodsAnswer, sendWrongAnswer })(GameOne) 
+export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs, sendGoodAnswer1, sendWrongAnswer1 })(GameOne) 

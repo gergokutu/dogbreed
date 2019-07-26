@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { displayRandomNames } from '../actions/gameTwo'
 import { displayImagesToAnswer } from '../actions/twoRandomImages'
 import { displayRightImage } from '../actions/getRightImage'
-import { sendGoodsAnswer } from '../actions/sendGoodAnswers'
-import { sendWrongAnswer } from '../actions/sendWrongAnswer'
+import { sendGoodAnswer2 } from '../actions/sendGoodAnswer2'
+import { sendWrongAnswer2 } from '../actions/sendWrongAnswer2'
 
 function GameTwo(props) {
   const { gameTwo } = props
@@ -15,17 +15,15 @@ function GameTwo(props) {
     .concat(props.breedName)
     .sort(() => Math.random() - 0.5)
 
-  console.log('shuffledPictures test:', shuffledPictures)
-
   const correctPic = (data) => {
     if (data.url) {
-      props.sendGoodsAnswer(data)
+      props.sendGoodAnswer2(data)
       alert('Correct! Click OK to continue the test.')
       props.displayRandomNames()
       props.displayImagesToAnswer()
     } else {
       console.log('data', data)
-      props.sendWrongAnswer(data)
+      props.sendWrongAnswer2(data)
       alert(`Wrong, the correct answer is: ${gameTwo.name}`)
       setTimeout(() => {
         props.displayRandomNames()
@@ -34,7 +32,7 @@ function GameTwo(props) {
     }
   }
 
-  const sucessRate = Math.floor(gameTwo.goodAnswers.length/(gameTwo.goodAnswers.length+gameTwo.wrongAnswers.length)*100)
+  const sucessRate = Math.floor(gameTwo.goodAnswers2.length/(gameTwo.goodAnswers2.length+gameTwo.wrongAnswers2.length)*100)
 
   return (
     <div className="gameTwo">
@@ -76,4 +74,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { displayRandomNames, displayImagesToAnswer, displayRightImage, sendGoodsAnswer, sendWrongAnswer })(GameTwo)
+export default connect(mapStateToProps, {
+  displayRandomNames,
+  displayImagesToAnswer,
+  displayRightImage,
+  sendGoodAnswer2,
+  sendWrongAnswer2})(GameTwo)

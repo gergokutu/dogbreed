@@ -33,5 +33,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {displayRandomNames, displayImagesToAnswer, displayRightImage})(GameTwoContainer)
+export default connect(mapStateToProps, {
+  displayRandomNames,
+  displayImagesToAnswer,
+  displayRightImage})(GameTwoContainer)
 
