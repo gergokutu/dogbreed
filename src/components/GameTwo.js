@@ -7,6 +7,11 @@ import {displayRightImage} from '../actions/getRightImage'
 
 function GameTwo(props){
   const {gameTwo} = props
+
+  const shuffledPictures = gameTwo.twoPictures
+  .concat(props.breedName)
+  .sort(()=> Math.random() - 0.5)
+
     return(
       <div className="gameTwo">
         <h1>GAME TWO</h1>
@@ -19,12 +24,10 @@ function GameTwo(props){
         </div>
         
         <div className="ImageAnswers">
-          {gameTwo.twoPictures.map((url, id) => <img src={url} alt='Dog' key={id}/>)}
+          {shuffledPictures.map((url, id) => <img src={url} alt='Dog' key={id}/>)}
         </div>
 
-        <div className="rightImage">
-          <img src={props.breedName} alt='Dog'/>
-        </div>
+      
       </div>
     )
   }
