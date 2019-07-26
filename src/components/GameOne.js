@@ -38,7 +38,7 @@ function GameOne(props) {
   return (
     <div className="game-one">
       <h1>GAME ONE</h1>
-      <Link to="/">Go back to the index</Link>
+      <Link to="/">Go back to Homepage</Link>
       <p>Please choose the correct answer</p>
 
       <div className='randomPicture'>
@@ -47,7 +47,7 @@ function GameOne(props) {
       </div>
 
       <div className='sucessRate'>  
-        Your sucess rate is: {!sucessRate ?  '0' : sucessRate}%
+        Your success rate is: {!sucessRate ?  '0' : sucessRate}%
       </div>
 
       <div className='list'>
