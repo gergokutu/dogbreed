@@ -16,7 +16,8 @@ function GameOne(props) {
   const cleanBreeds = dogBreeds.filter(breed => breed !== breedName)
 
   const shuffeledBreeds = cleanBreeds.sort(() => Math.random() - 0.5)
-  const selected = shuffeledBreeds.slice(0, 3)
+  const selected = shuffeledBreeds.slice(0, 2)
+  const breedOfTHree = selected.concat(breedName)
 
   const checkAnswer = (event) => {
     if (event.target.value === breedName) {
@@ -54,7 +55,7 @@ function GameOne(props) {
       <div className='list'>
         {<select defaultValue='' onChange={checkAnswer}>
           <option value='' key=''>--select a breed name--</option>
-          {selected.map(dog => {
+          {breedOfTHree.map(dog => {
             return <option value={dog} key={Math.random()}>{dog}</option>
           })}
         </select>}
