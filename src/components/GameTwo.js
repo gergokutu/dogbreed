@@ -12,6 +12,10 @@ function GameTwo(props){
   .concat(props.breedName)
   .sort(()=> Math.random() - 0.5)
 
+  const correctPic = (event) => {
+    alert('Hello')
+  }
+
     return(
       <div className="gameTwo">
         <h1>GAME TWO</h1>
@@ -23,8 +27,8 @@ function GameTwo(props){
           <h2><b>{gameTwo.name}</b></h2>
         </div>
         
-        <div className="ImageAnswers">
-          {shuffledPictures.map((url, id) => <img src={url} alt='Dog' key={id}/>)}
+        <div onClick={correctPic} className="ImageAnswers">
+          {shuffledPictures.map((url, id) => <img  src={url} alt='Dog' key={id}/>)}
         </div>
 
       
