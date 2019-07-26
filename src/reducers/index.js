@@ -1,17 +1,14 @@
 import { combineReducers } from 'redux'
 import dogBreeds from './dogList'
 import images from './dogBreedImages'
-import picture from './randomPicture'
-import dogName from './randomTwoDogs'
-// import GameTwo from '../components/GameTwo';
+import gameOneReducer from './gameOneReducer'
 import gameTwoReducer from './gameTwoReducer'
 import breedName from './getRightImage'
 
 export default combineReducers({
   dogBreeds: dogBreeds,
   images: images,
-  picture: picture,
-  dogName: dogName,
+  random: gameOneReducer,
   gameTwo: gameTwoReducer,
   breedName: breedName
 })

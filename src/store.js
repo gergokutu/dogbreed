@@ -1,8 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-// import reducer from './reducers/dogList'
-// use the combined (index.js) reducer instead of one...
-// ...import reducer from './reducers/index'...
-// the shorthand for the previous line » import reducer from './reducers' 
 import reducer from './reducers'
 import ReduxThunk from 'redux-thunk'
 
