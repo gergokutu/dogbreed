@@ -8,11 +8,18 @@ import { sendGoodsAnswer } from '../actions/sendGoodAnswers'
 import { sendWrongAnswer } from '../actions/sendWrongAnswer'
 
 function GameOne(props) {
-  const { random } = props
+  const { random, dogBreeds } = props
+  console.log("doglist", dogBreeds)
   const string = random.picture.toString()
   const breedNamesArray = string.split('/')
   const breedName = breedNamesArray[4]
   const newBreedNamesArray = props.random.breeds.concat(breedName)
+//   const cleanBreeds = dogBreeds.filter(breed => {if (breed === !breedName) {
+//     return breed
+//   }
+//   return null
+// })
+//   console.log("clean", cleanBreeds)
   const shuffeledBreeds = newBreedNamesArray.sort(() => Math.random() - 0.5)
 
   const checkAnswer = (event) => {
