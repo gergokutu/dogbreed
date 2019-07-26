@@ -38,10 +38,13 @@ function GameTwo(props){
           {shuffledPictures.map((url, id) => <img  src={url} alt='Dog' key={id}/>)}
 >>>>>>> 66096877ec1e36edf61d418d12ddc8be4b6caeff
         </div>
+<<<<<<< HEAD
 
         <div className="rightImage">
           <img src={props.breedName} alt='Dog'/>
         </div>
+=======
+>>>>>>> feat/gameTwo
       </div>
     )
   }
