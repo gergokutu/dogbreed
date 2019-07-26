@@ -10,7 +10,7 @@ function GameTwo(props){
     return(
       <div className="gameTwo">
         <h1>GAME TWO</h1>
-        <Link to="/">Go back to the index</Link>
+        <Link to="/">Go back to the Homepage</Link>
         <p>Select the right Image below</p>
     
         <div className="randomNames">

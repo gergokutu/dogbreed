@@ -1,3 +1,17 @@
 .list {
   margin: 2%;
 }
+select,option{
+  min-width: auto;
+  min-width: auto;
+  height: 35px;
+  width: 270px;
+  text-align: center; 
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sucessRate{
+  font-weight: 600;
+  color: orange;
+}
