@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { displayRandomNames } from '../actions/gameTwo'
 import { displayImagesToAnswer } from '../actions/twoRandomImages'
 import { displayRightImage } from '../actions/getRightImage'
+import { sendGoodsAnswer } from '../actions/sendGoodAnswers'
+import { sendWrongAnswer } from '../actions/sendWrongAnswer'
 
 function GameTwo(props) {
   const { gameTwo } = props
@@ -17,11 +19,13 @@ function GameTwo(props) {
 
   const correctPic = (data) => {
     if (data.url) {
+      props.sendGoodsAnswer(data)
       alert('Correct! Click OK to continue the test.')
       props.displayRandomNames()
       props.displayImagesToAnswer()
     } else {
       console.log('data', data)
+      props.sendWrongAnswer(data)
       alert(`Wrong, the correct answer is: ${gameTwo.name}`)
       setTimeout(() => {
         props.displayRandomNames()
@@ -29,6 +33,8 @@ function GameTwo(props) {
       }, 1000)
     }
   }
+
+  const sucessRate = Math.floor(gameTwo.goodAnswers.length/(gameTwo.goodAnswers.length+gameTwo.wrongAnswers.length)*100)
 
   return (
     <div className="gameTwo">
@@ -57,6 +63,9 @@ function GameTwo(props) {
         }
       </div>
 
+      <div className='sucessRate'>  
+        Your success rate is: {!sucessRate ?  '0' : sucessRate}%
+      </div>
 
     </div>
   )
@@ -67,4 +76,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { displayRandomNames, displayImagesToAnswer, displayRightImage })(GameTwo)
+export default connect(mapStateToProps, { displayRandomNames, displayImagesToAnswer, displayRightImage, sendGoodsAnswer, sendWrongAnswer })(GameTwo)
