@@ -9,27 +9,23 @@ class GameTwoContainer extends Component{
   componentDidMount(){
     this.props.displayRandomNames()
     this.props.displayImagesToAnswer()
-    console.log(this.props)
-
   }
 
   // (-, parameter) » '_' universal sign for unused prev params
   // check componentDidUpdate in react lifecycle methods
   componentDidUpdate(prevProps){
     if(prevProps.name !== this.props.name) {
-      console.log('sdfgd', this.props.name )
       this.props.displayRightImage(this.props.name)
     }
   } 
 
   render(){
     return(
-      <GameTwo name={this.props.name} twoPictures={this.props.twoPictures} breedName={this.props.breedName}/> ///fix here
+      <GameTwo name={this.props.name} twoPictures={this.props.twoPictures} breedName={this.props.breedName}/>
     )
   }
 }
 const mapStateToProps = (state) => {
-  console.log('state', state)
   return {
     name: state.gameTwo.name,
     twoPictures: state.gameTwo.twoPictures,

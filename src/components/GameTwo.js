@@ -30,8 +30,6 @@ function GameTwo(props){
         <div onClick={correctPic} className="ImageAnswers">
           {shuffledPictures.map((url, id) => <img  src={url} alt='Dog' key={id}/>)}
         </div>
-
-      
       </div>
     )
   }
