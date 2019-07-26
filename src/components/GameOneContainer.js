@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 import GameOne from './GameOne'
 import { displayQuestionImage } from "../actions/randomPicture"
 import { displayRandomTwoDogs } from "../actions/randomTwoDogs"
+import { displayDogs } from '../actions/dogList'
 
 class GameOneContainer extends Component {
   componentDidMount() {
+    this.props.displayDogs()
     this.props.displayQuestionImage()
     this.props.displayRandomTwoDogs()
   }
@@ -20,8 +22,9 @@ class GameOneContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     picture: state.picture,
-    dogName: state.dogName
+    dogName: state.dogName,
+    dogBreeds: state.dogBreeds
   }
 }
 
-export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs})(GameOneContainer)
+export default connect(mapStateToProps, { displayQuestionImage, displayRandomTwoDogs, displayDogs})(GameOneContainer)
