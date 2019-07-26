@@ -26,8 +26,6 @@ function GameTwo(props){
         <div className="ImageAnswers">
           {shuffledPictures.map((url, id) => <img src={url} alt='Dog' key={id}/>)}
         </div>
-
-      
       </div>
     )
   }
